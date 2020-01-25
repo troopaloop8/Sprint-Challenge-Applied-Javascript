@@ -20,7 +20,7 @@
 
 
 const carouselContainer = document.querySelector('.carousel-container');
-const imageArray = ['./assets/carousel/mountains.jpeg', './assets/carousel/computer.jpeg', './assets/carousel/trees.jpeg', './assets/carousel/turntable.jpeg']
+const imageArray = ['./assets/carousel/mountains.jpeg', './assets/carousel/computer.jpeg', './assets/carousel/trees.jpeg', './assets/carousel/turntable.jpeg', './assets/carousel/resort.jpg', './assets/carousel/space.jpg']
 
 function carouselCreator(images) {
 
@@ -40,7 +40,7 @@ function carouselCreator(images) {
   let index = 0;
 
   leftBtn.addEventListener('click', e => {
-      if (index === 3) {
+      if (index === (images.length - 1)) {
         img.src = images[0];
         index = 0;
       }
@@ -52,7 +52,7 @@ function carouselCreator(images) {
 
   rightBtn.addEventListener('click', e => {
     if (index === 0) {
-      img.src = images[3];
+      img.src = images[images.length -1];
       index = 3;
     }
     else {
