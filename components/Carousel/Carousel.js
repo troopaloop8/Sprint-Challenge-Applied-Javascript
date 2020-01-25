@@ -22,6 +22,8 @@
 const carouselContainer = document.querySelector('.carousel-container');
 const imageArray = ['./assets/carousel/mountains.jpeg', './assets/carousel/computer.jpeg', './assets/carousel/trees.jpeg', './assets/carousel/turntable.jpeg', './assets/carousel/resort.jpg', './assets/carousel/space.jpg']
 
+
+
 function carouselCreator(images) {
 
   const newCarousel = document.createElement('div');
@@ -39,27 +41,61 @@ function carouselCreator(images) {
 
   let index = 0;
 
-  leftBtn.addEventListener('click', e => {
+  rightBtn.addEventListener('click', e => {
       if (index === (images.length - 1)) {
+        img.animate([
+          // keyframes
+          { opacity: 0 }, 
+          { opacity: 100 }
+        ], {
+          duration: 1000,
+          iterations: 1
+        })
         img.src = images[0];
         index = 0;
       }
       else {
+        img.animate([
+          // keyframes
+          { opacity: 0 }, 
+          { opacity: 100 }
+        ], {
+          duration: 1000,
+          iterations: 1
+        })
         img.src = images[index + 1];
         index++;
       }
   });
 
-  rightBtn.addEventListener('click', e => {
+  leftBtn.addEventListener('click', e => {
     if (index === 0) {
       img.src = images[images.length -1];
-      index = 3;
+      img.animate([
+        // keyframes
+        { opacity: 0 }, 
+          { opacity: 100 }
+      ], {
+        duration: 1000,
+        iterations: 1
+      })
+      index = (images.length - 1);
     }
     else {
       img.src = images[index - 1];
+      img.animate([
+        // keyframes
+        { opacity: 0 }, 
+          { opacity: 100 }
+      ], {
+        duration: 1000,
+        iterations: 1
+      })
       index -= 1;
     }
   });
+
+  
 
   newCarousel.appendChild(leftBtn);
   newCarousel.appendChild(img);
